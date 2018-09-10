@@ -86,7 +86,7 @@ function setDifficultyLevel() {
     difficulty.innerHTML = '';
     seconds.innerHTML = 0;
   }
-// test
+
   // time = difficultyLevel.value;
   // currentLevel = difficultyLevel.options[difficultyLevel.selectedIndex].innerHTML;
   // set difficulty
