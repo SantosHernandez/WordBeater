@@ -9,12 +9,13 @@ const levels = {
   hard: 2,
 }
 
-const difficulty = ['Easy', 'Medium', 'Hard'];
-
 // To change level
 const currentLevel = levels.easy;
 
 let time = currentLevel;
+// let time = 0;
+// let currentLevel;
+
 let score = 0;
 let isPlaying;
 
@@ -25,6 +26,8 @@ const scoreDisplay = document.querySelector('#score');
 const timeDisplay = document.querySelector('#time');
 const message = document.querySelector('#message');
 const seconds = document.querySelector('#seconds');
+const difficultyLevel = document.querySelector('#difficulty-level');
+const difficulty = document.querySelector('#difficulty');
 
 const words = [
   'hat',
@@ -56,6 +59,8 @@ const words = [
 
 // Initialize Game
 function init() {
+  // Set difficulty Level
+  difficultyLevel.addEventListener('change', setDifficultyLevel)
   // Show numbers of seconds in UI
   seconds.innerHTML = currentLevel;
   // Load word from array
@@ -67,6 +72,29 @@ function init() {
   // Check game status
   setInterval(checkStatus, 50);
 
+}
+
+// Set Difficulty Level
+function setDifficultyLevel() {
+  console.log(difficultyLevel.value);
+  console.log(difficultyLevel.options[difficultyLevel.selectedIndex].innerHTML);
+
+  if(difficultyLevel.selectedIndex > 0){
+    difficulty.innerHTML = difficultyLevel.options[difficultyLevel.selectedIndex].innerHTML;
+    seconds.innerHTML = difficultyLevel.value;
+  } else {
+    difficulty.innerHTML = '';
+    seconds.innerHTML = 0;
+  }
+
+  // time = difficultyLevel.value;
+  // currentLevel = difficultyLevel.options[difficultyLevel.selectedIndex].innerHTML;
+  // set difficulty
+  // set seconds
+  // set currentLevel
+  // set time
+  // to be equal to difficultyLevel.value
+  // or difficultyLevel.options[difficultyLevel.selectedIndex].innerHTML
 }
 
 // Start Match
